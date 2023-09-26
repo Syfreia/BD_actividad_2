@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BD_actividad_2</string>
+    <string name="text_in_cod">ingrese el codigo</string>
+    <string name="text_in_descrip">ingrese la descripcion</string>
+    <string name="text_in_precio">ingrese el precio</string>
+    <string name="btn_alta">ALTA</string>
+    <string name="btn_consul_cod">CONSULTA POR CODIGO</string>
+    <string name="btn_consul_des">CONSULTA POR DESCRIPCION</string>
+    <string name="btn_baja">BAJA POR CODIGO</string>
+    <string name="btn_mod">MODIFICAR</string>
+    <string name="Btn_lista">LISTAR</string>
+    <string name="text_OUT_BD">BD_Firestore</string>
+</resources>

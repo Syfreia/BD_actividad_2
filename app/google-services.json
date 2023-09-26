@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "172539883421",
+    "project_id": "bd-proba0",
+    "storage_bucket": "bd-proba0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172539883421:android:71d557823900c20d704974",
+        "android_client_info": {
+          "package_name": "com.example.bd_actividad_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABr4_66f5TBYnwvGK6-tQScl5UV5hXsBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172539883421:android:17616e8143d5d9b4704974",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABr4_66f5TBYnwvGK6-tQScl5UV5hXsBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

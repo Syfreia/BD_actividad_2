@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/IN_cod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_in_cod"
+            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck,TouchTargetSizeCheck" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/In_descrip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_in_descrip"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/IN_precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_in_precio"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/btn_alta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_alta"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="11dp" />
+
+        <Button
+            android:id="@+id/btn_consulta_cod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_consul_cod"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <Button
+            android:id="@+id/btn_consulta_descrip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_consul_des"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <Button
+            android:id="@+id/btn_baja_cod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_baja"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <Button
+            android:id="@+id/btn_mod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_mod"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/btn_lista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Btn_lista"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="46dp" />
+
+        <TextView
+            android:id="@+id/Out_BD_Info"
+            android:layout_width="match_parent"
+            android:layout_height="193dp"
+            android:text="@string/text_OUT_BD" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
