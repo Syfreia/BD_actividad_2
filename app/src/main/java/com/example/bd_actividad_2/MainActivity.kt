@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
             db.collection("Productos").add(data)
                 .addOnSuccessListener { documentReference ->
-                    bdINFO.text = "Document added with ID: ${documentReference.id}"
+                    bdINFO.text = "Document added: $data"
                 }
                 .addOnFailureListener { e ->
                     bdINFO.text = "Error adding document: ${e.message}"
@@ -61,9 +61,9 @@ class MainActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { querySnapshot ->
                     if (!querySnapshot.isEmpty) {
-                        bdINFO.text = "Code exists in the database."
+                        bdINFO.text = "($codeToQuery) Code exists in the database."
                     } else {
-                        bdINFO.text = "Code not found in the database."
+                        bdINFO.text = "($codeToQuery) Code not found in the database."
                     }
                 }
                 .addOnFailureListener { e ->
@@ -79,15 +79,95 @@ class MainActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { querySnapshot ->
                     if (!querySnapshot.isEmpty) {
-                        bdINFO.text = "Description exists in the database."
+                        bdINFO.text = "($descriptionToQuery) Description exists in the database."
                     } else {
-                        bdINFO.text = "Description not found in the database."
+                        bdINFO.text = "($descriptionToQuery) Description not found in the database."
                     }
                 }
                 .addOnFailureListener { e ->
                     bdINFO.text = "Error querying data: ${e.message}"
                 }
         }
+
+        baja.setOnClickListener {
+            val codeToDelete = editTextCode.text.toString()
+
+            // Delete the document with the specified code
+            db.collection("Productos").whereEqualTo("code", codeToDelete)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (!querySnapshot.isEmpty) {
+                        // Delete the first matching document
+                        val document = querySnapshot.documents[0]
+                        db.collection("Productos").document(document.id)
+                            .delete()
+                            .addOnSuccessListener {
+                                bdINFO.text = "Document with code ($codeToDelete) deleted."
+                            }
+                            .addOnFailureListener { e ->
+                                bdINFO.text = "Error deleting document: ${e.message}"
+                            }
+                    } else {
+                        bdINFO.text = "($codeToDelete) Code not found in the database."
+                    }
+                }
+                .addOnFailureListener { e ->
+                    bdINFO.text = "Error querying data: ${e.message}"
+                }
+        }
+
+        modificar.setOnClickListener {
+            // Get the code to identify the document to update
+            val codeToUpdate = editTextCode.text.toString()
+
+            // New data to update the document
+            val newDescription = editTextDescription.text.toString()
+            val newPriceStr = editTextPrice.text.toString()
+            val newPrice = newPriceStr.toDoubleOrNull() ?: 0.0
+
+            // Update the document with the new data
+            db.collection("Productos").whereEqualTo("code", codeToUpdate)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (!querySnapshot.isEmpty) {
+                        // Update the first matching document
+                        val document = querySnapshot.documents[0]
+                        db.collection("Productos").document(document.id)
+                            .update(
+                                "description", newDescription,
+                                "price", newPrice
+                            )
+                            .addOnSuccessListener {
+                                bdINFO.text = "Document with code ($codeToUpdate) updated."
+                            }
+                            .addOnFailureListener { e ->
+                                bdINFO.text = "Error updating document: ${e.message}"
+                            }
+                    } else {
+                        bdINFO.text = "($codeToUpdate) Code not found in the database."
+                    }
+                }
+                .addOnFailureListener { e ->
+                    bdINFO.text = "Error querying data: ${e.message}"
+                }
+        }
+
+        lista.setOnClickListener {
+            // Retrieve and list all documents from the "Productos" collection
+            db.collection("Productos")
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    val result = StringBuilder()
+                    for (document in querySnapshot) {
+                        result.append("Code: ${document["code"]}, Description: ${document["description"]}, Price: ${document["price"]}\n")
+                    }
+                    bdINFO.text = result.toString()
+                }
+                .addOnFailureListener { e ->
+                    bdINFO.text = "Error retrieving data: ${e.message}"
+                }
+        }
+
 
     }
 }
